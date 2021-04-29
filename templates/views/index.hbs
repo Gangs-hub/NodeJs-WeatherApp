@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<!--just for dynamic page loading but we can also use only static index.html In course post this file index.html removed -->
+
+<head>
+    <title>Weather</title>
+    <link rel="icon"href="./img/weather_icon.png">
+<link rel="stylesheet" href="./Css/Styles.css">
+<!--<script src="./js/app.js"></script> -->
+
+</head>
+<!-- we can also give path like /Css/Styles.css-->
+<body>
+    <div class="main-content">
+        {{>header}}
+        <p>Use this site to get any location weather!</p>
+        <form>
+            <input placeholder="Location">
+            <button>Search</button>
+        </form>
+
+        <p id="message-1"></p>
+        <p id="message-2"></p>
+    </div>
+
+{{>footer}}
+<!-- Earlier  java script was added to head but then it is getting loaded prior to html so added below -->
+<script src="./js/app.js"></script>
+</body>
+
+
+</html>
