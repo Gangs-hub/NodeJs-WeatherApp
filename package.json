@@ -4,7 +4,7 @@
   "description": "first web sever",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start":"node Src/app.js"
   },
   "author": "Gangs Kadam",
   "license": "ISC",

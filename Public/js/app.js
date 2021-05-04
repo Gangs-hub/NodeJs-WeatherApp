@@ -32,8 +32,8 @@ messageOne.textContent='Please provide Input!'
     messageOne.textContent='Loading....'
     messageSecond.textContent=''
 
-    fetch('http://localhost:3000/weather?address='+locationProvided).then((response)=>{
-    
+    fetch('/weather?address='+locationProvided).then((response)=>{
+        //in local running >>>http://localhost:3000
         response.json().then((data)=>{
         
         if(data.Error){

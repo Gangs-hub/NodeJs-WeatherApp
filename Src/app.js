@@ -11,6 +11,7 @@ const Forecast=require('./Utils/Forecast')
 console.log(path.join(__dirname,'../public'))*/
 
 const app=express()  //function create exp application
+const port=process.env.PORT || 3000 //line will take port fm ruuning env or 3000 port
 
 //Define path for express config
 const publicDirPath=path.join(__dirname,'../public')
@@ -192,6 +193,6 @@ app.get('*',(req,res)=>{
 
 
 //to make server Up
-app.listen(3000,()=>{
-console.log('Server is Up and running on 3000 port!')
+app.listen(port,()=>{
+console.log('Server is Up and running on port '+port)
 })
