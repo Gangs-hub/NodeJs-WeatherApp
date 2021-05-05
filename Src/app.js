@@ -11,7 +11,8 @@ const Forecast=require('./Utils/Forecast')
 console.log(path.join(__dirname,'../public'))*/
 
 const app=express()  //function create exp application
-const port=process.env.PORT || 3000 //line will take port fm ruuning env or 3000 port
+const port=(process.env.PORT) || (3000);
+//line will take port fm ruuning env or 3000 port
 
 //Define path for express config
 const publicDirPath=path.join(__dirname,'../public')
