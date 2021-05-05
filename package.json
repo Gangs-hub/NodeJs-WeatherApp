@@ -2,7 +2,7 @@
   "name": "web-server",
   "version": "1.0.0",
   "description": "first web sever",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "start":"node Src/app.js"
   },
