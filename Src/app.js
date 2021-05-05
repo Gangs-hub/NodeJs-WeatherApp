@@ -174,7 +174,7 @@ res.send('404 page,request doenot match')
 //specific help 404
 app.get('/help/*',(req,res)=>{
 res.render('404',{
-title:404,
+title:'here is 404!',
 name:'Gangadhar Kadam',
 errorMessage:'Help page article not found!'
 
@@ -185,7 +185,7 @@ errorMessage:'Help page article not found!'
 //for common errors generic 404
 app.get('*',(req,res)=>{
     res.render('404',{
-        title:'404',
+        title:'here is too 404!',
         name:'Gangadhar Kadam',
         errorMessage:'Page not found!'
 
