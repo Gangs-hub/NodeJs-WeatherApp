@@ -3,8 +3,8 @@ const express=require('express')//express is function object
 const hbs=require('hbs')
 const { match } = require('assert')//come automatically
 
-const geocode=require('../Src/Utils/geocode')
-const forecast=require('../Src/Utils/forecast')
+const geocode=require('../Src/Utils/GeoCode')
+const forecast=require('../Src/Utils/Forecast')
 
 
 /*console.log(__dirname)
