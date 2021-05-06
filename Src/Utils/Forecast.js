@@ -30,6 +30,5 @@ const forecast=(lattitude,logitude,callback)=>{
     })
         }
 
-        module.exports={
-            forecast:forecast   
-        }
+        module.exports=forecast
+           

@@ -1,7 +1,7 @@
 //CallBack Pattern: to make code reusable
 const request=require('postman-request')
 
-const geoCode=(address,callback)=>{
+const geocode=(address,callback)=>{
 
     const url='https://api.mapbox.com/geocoding/v5/mapbox.places/'+encodeURIComponent(address)+'.json?access_token=pk.eyJ1IjoiZ2FuZ3MiLCJhIjoiY2tuc3Z6djNqMHVwdTJvbzMwc2tva3FzbSJ9.rNBtjuIeW99Xi59zju7b1w&limit=1'
     request({url:url,json:true},(error,response)=>{
@@ -39,7 +39,7 @@ const geoCode=(address,callback)=>{
 
 
 
-    module.exports={
-        geoCode:geoCode,
+    module.exports=geocode
         
-    }
+        
+    

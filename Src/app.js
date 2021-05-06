@@ -3,8 +3,8 @@ const express=require('express')//express is function object
 const hbs=require('hbs')
 const { match } = require('assert')//come automatically
 
-const GeoCode=require('./Utils/GeoCode')
-const Forecast=require('./Utils/Forecast')
+const geocode=require('./Utils/geocode')
+const forecast=require('./Utils/forecast')
 
 
 /*console.log(__dirname)
@@ -54,36 +54,7 @@ app.get('/help',(req,res)=>{
 
 })
 
-/*This wont be used as we configured by default file to open on server
-app.get('',(req,res)=>{  // on local host route
-   // res.send('Hello Express!')
-   res.send('<h1>Hello Express</h1>')
-    
-})*/
 
-//app.com
-//app.com/help
-/*app.get('/help',(req,res)=>{
-    //res.send('About to help you!')
-    //JSON Object
-    res.send([{
-        name:'Gangs',
-        age:26
-    },
-    {
-        name:'Boby',
-        age:23
-    }
-    ])
-})
-
-//Challenge:::----to make route to websites
-//app.com/about
-//app.com/weather
-app.get('/about',(req,res)=>{
-  //  res.send('We are specail!')
-res.send('<h2>Title is About!<h2>')
-})*/
 
 app.get('/weather',(req,res)=>{
    // res.send('Nanded weather is always cool!')
@@ -93,21 +64,21 @@ if(!req.query.address){
       Error: 'Error!Please provide address!'
     })
 }
-var address=req.query.address
+
 //call back function:
-GeoCode.geoCode(address,(error,{lattitude,logitude,Location}={})=>{
+geocode(req.query.address,(error,{lattitude,logitude,Location}={})=>{
     //in Coach's code cordinateRes object got destucted and used below
     //GeoCode.geoCode(address,(error,{lattitude,logitude,Location}={})=>{
         //if we use only GeoCode.geoCode(address,(error,{lattitude,logitude,Location})=>{
             //and any unexpected ! or @ address given by user then hv to use ={}
 
     if(error){
-        return res.send({Error:error })
+        return res.send({error })
        
     }
-    Forecast.forecast(lattitude,logitude,(error,foreCastresult)=>{
+    forecast(lattitude,logitude,(error,foreCastresult)=>{
      if(error){ 
-         return res.send({Error:error})
+         return res.send({error})
          
      }
      //res.send('all working fine!')
@@ -127,17 +98,9 @@ GeoCode.geoCode(address,(error,{lattitude,logitude,Location}={})=>{
 
 })
 
-
-
-
-
-    /*{
-       location:req.query.address,
-       temprature:26
-   }*/
    
 })
-
+/*
 app.get('/products',(req,res)=>{
    
     if(!req.query.search){
@@ -157,20 +120,9 @@ app.get('/products',(req,res)=>{
 
  
 
-})
+})*/
 
-/*
-//we can provide specific 404 error
-app.get('/help/*',(req,res)=>{
-    res.send('404.help page article not found!')
-})
 
-//if nothing of route match then this will match and show error 404 page
-app.get('*',(req,res)=>{
-res.send('404 page,request doenot match')
-})
-*/
-//hanlebars and partils
 //specific help 404
 app.get('/help/*',(req,res)=>{
 res.render('404',{
