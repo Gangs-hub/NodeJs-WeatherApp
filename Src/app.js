@@ -29,6 +29,9 @@ app.use(express.static(publicDirPath))//dir to load on server start
 
 //Route handlers
 app.get('/',(req,res)=>{ //common root dirr
+    res.header('X-Content-Type-Options', 'nosniff')
+   res.header('cache control','max-age=31536000', 'immutable')
+   res.setHeader("Content-Type", "text/html");
     res.render('index',{
         title:'Weather',
         name:'Gangs Kadam'
@@ -37,6 +40,9 @@ app.get('/',(req,res)=>{ //common root dirr
 
 //Dynamic page for about
 app.get('/about',(req,res)=>{
+    res.header('X-Content-Type-Options', 'nosniff')
+    res.header('cache control','max-age=31536000', 'immutable')
+    res.setHeader("Content-Type", "text/html");
     res.render('about',{
         title:'About me',
         name:'Gangadhar Kadam'
@@ -46,7 +52,9 @@ app.get('/about',(req,res)=>{
 })
 //Dynamic Page for Help.html
 app.get('/help',(req,res)=>{
-
+    res.header('X-Content-Type-Options', 'nosniff')
+   res.header('cache control','max-age=31536000', 'immutable')
+   res.setHeader("Content-Type", "text/html");
     res.render('help',{
         title:'Help',
         name:'Gangadhar Kadam'
@@ -58,7 +66,10 @@ app.get('/help',(req,res)=>{
 
 app.get('/weather',(req,res)=>{
    // res.send('Nanded weather is always cool!')
-
+   res.header('X-Content-Type-Options', 'nosniff')
+   res.header('cache control','max-age=31536000', 'immutable')
+  
+  // res.setHeader("Content-Type", "text/html");
 if(!req.query.address){
    return res.send({
       Error: 'Error!Please provide address!'
@@ -133,17 +144,17 @@ errorMessage:'Help page article not found!'
 })
 })
 
-
+/*
 //for common errors generic 404
 app.get('*',(req,res)=>{
     res.render('404',{
-        title:'here is too 404!',
+        title:'404',
         name:'Gangadhar Kadam',
         errorMessage:'Page not found!'
 
     })
 })
-
+*/
 
 //to make server Up
 app.listen(port,()=>{
