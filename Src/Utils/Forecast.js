@@ -17,8 +17,9 @@ const forecast=(lattitude,logitude,callback)=>{
                 var currTemp=response.body.current.temperature
                 var apprentTemp=response.body.current.feelslike
                 var overallDesc=response.body.current.weather_descriptions[0]
+                var humidity=response.body.current.humidity
                 //console.log( overallDesc+'. Current temperature is '+currTemp+' however it feels like '+apprentTemp)
-                callback(undefined, overallDesc+'. Current temperature is '+currTemp+' however it feels like '+apprentTemp)
+                callback(undefined, overallDesc+'. Current temperature is '+currTemp+' however it feels like '+apprentTemp +'. The humidity is '+humidity+' %.')
     
             }
             /*{
