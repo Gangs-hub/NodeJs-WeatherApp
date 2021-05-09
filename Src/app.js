@@ -31,7 +31,8 @@ app.use(express.static(publicDirPath))//dir to load on server start
 app.get('/',(req,res)=>{ //common root dirr
     res.header('X-Content-Type-Options', 'nosniff')
    res.header('cache control','max-age=31536000', 'immutable')
-   res.setHeader("Content-Type", "text/html");
+   res.removeHeader("X-Powered-By");
+   
     res.render('index',{
         title:'Weather',
         name:'Gangs Kadam'
@@ -42,7 +43,8 @@ app.get('/',(req,res)=>{ //common root dirr
 app.get('/about',(req,res)=>{
     res.header('X-Content-Type-Options', 'nosniff')
     res.header('cache control','max-age=31536000', 'immutable')
-    res.setHeader("Content-Type", "text/html");
+    res.removeHeader("X-Powered-By");
+  
     res.render('about',{
         title:'About me',
         name:'Gangadhar Kadam'
@@ -54,7 +56,9 @@ app.get('/about',(req,res)=>{
 app.get('/help',(req,res)=>{
     res.header('X-Content-Type-Options', 'nosniff')
    res.header('cache control','max-age=31536000', 'immutable')
-   res.setHeader("Content-Type", "text/html");
+   res.removeHeader("X-Powered-By");
+   
+ 
     res.render('help',{
         title:'Help',
         name:'Gangadhar Kadam'
@@ -68,6 +72,8 @@ app.get('/weather',(req,res)=>{
    // res.send('Nanded weather is always cool!')
    res.header('X-Content-Type-Options', 'nosniff')
    res.header('cache control','max-age=31536000', 'immutable')
+   res.removeHeader("X-Powered-By");
+   
   
   // res.setHeader("Content-Type", "text/html");
 if(!req.query.address){
@@ -136,6 +142,8 @@ app.get('/products',(req,res)=>{
 
 //specific help 404
 app.get('/help/*',(req,res)=>{
+    res.removeHeader("X-Powered-By");
+    
 res.render('404',{
 title:'here is 404!',
 name:'Gangadhar Kadam',
